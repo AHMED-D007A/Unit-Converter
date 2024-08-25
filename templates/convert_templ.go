@@ -26,7 +26,7 @@ func Convert(unit string, Units []string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 1)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Unit Converter</title><style>\n\t\t\th1 {\n\t\t\t\tfont-weight: bolder;\n\t\t\t\tfont-size: xx-large;\n\t\t\t\twidth: fit-content;\n\t\t\t}\n\t\t\tbutton {\n\t\t\t\tcursor: pointer;\n\t\t\t\tborder: solid 3px;\n\t\t\t\tborder-radius: 10px;\n\t\t\t\ttext-decoration: none;\n\t\t\t\tcolor: black;\n\t\t\t\tfont-weight: 500;\n\t\t\t\tfont-size: large;\n\t\t\t}\n\t\t\tform {\n\t\t\t\tmargin: 50px 0;\n\t\t\t}\n\t\t\tlabel {\n\t\t\t\tfont-size: large;\n\t\t\t\tfont-weight: bold;\n\t\t\t\tfont-size: 20px;\n\t\t\t}\n\t\t\tinput {\n\t\t\t\tmargin-bottom: 30px;\n\t\t\t\twidth: 30%;\n\t\t\t\tfont-size: 20px;\n\t\t\t}\n\t\t\tselect {\n\t\t\t\tmargin-bottom: 30px;\n\t\t\t\twidth: 30%;\n\t\t\t\tfont-size: 20px;\n\t\t\t}\n\t\t\t.submit {\n\t\t\t\tcursor: pointer;\n\t\t\t\tborder: solid 3px;\n\t\t\t\tborder-radius: 10px;\n\t\t\t\ttext-decoration: none;\n\t\t\t\tcolor: black;\n\t\t\t\tfont-weight: 500;\n\t\t\t\tfont-size: 20px;\n\t\t\t}\n\t\t</style></head><body><div><h1 onclick=\"window.location.pathname = &#39;/&#39;\">Unit Converter</h1><button type=\"button\" onclick=\"window.location.pathname = &#39;/length&#39;\">Length Converter</button> <button type=\"button\" onclick=\"window.location.pathname = &#39;/weight&#39;\">Weight Converter</button> <button type=\"button\" onclick=\"window.location.pathname = &#39;/temperature&#39;\">Temperature Converter</button></div><form target=\"_self\" method=\"POST\"><label for=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -39,7 +39,7 @@ func Convert(unit string, Units []string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 2)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\">Enter the ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -52,7 +52,7 @@ func Convert(unit string, Units []string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 3)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" to convert</label><br><input type=\"number\" id=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -65,7 +65,7 @@ func Convert(unit string, Units []string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 4)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" name=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -78,12 +78,12 @@ func Convert(unit string, Units []string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 5)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"><br><label for=\"from\">Unit to convert from</label><br><select id=\"from\" name=\"from\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		for _, v := range Units {
-			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 6)
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<option value=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -96,7 +96,7 @@ func Convert(unit string, Units []string) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 7)
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -109,17 +109,17 @@ func Convert(unit string, Units []string) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 8)
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</option>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 9)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</select><br><label for=\"to\">Unit to convert to</label><br><select id=\"to\" name=\"to\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		for _, v := range Units {
-			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 10)
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<option value=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -132,7 +132,7 @@ func Convert(unit string, Units []string) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 11)
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -145,12 +145,12 @@ func Convert(unit string, Units []string) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 12)
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</option>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 13)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</select><br><input class=\"submit\" type=\"submit\" value=\"Convert\"></form></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

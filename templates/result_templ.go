@@ -26,7 +26,7 @@ func Result(length string, from string, result string, to string) templ.Componen
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 1)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Unit Converter</title><style>\n\t\t\th1 {\n\t\t\t\tfont-weight: bolder;\n\t\t\t\tfont-size: xx-large;\n\t\t\t\twidth: fit-content;\n\t\t\t}\n\t\t\tbutton {\n\t\t\t\tcursor: pointer;\n\t\t\t\tborder: solid 3px;\n\t\t\t\tborder-radius: 10px;\n\t\t\t\ttext-decoration: none;\n\t\t\t\tcolor: black;\n\t\t\t\tfont-weight: 500;\n\t\t\t\tfont-size: large;\n\t\t\t}\n\t\t\tp {\n\t\t\t\tfont-size: 40px;\n\t\t\t\tfont-weight: bold;\n\t\t\t}\n\t\t</style></head><body><div><h1 onclick=\"window.location.pathname = &#39;/&#39;\">Unit Converter</h1><button type=\"button\" onclick=\"window.location.pathname = &#39;/length&#39;\">Length Converter</button> <button type=\"button\" onclick=\"window.location.pathname = &#39;/weight&#39;\">Weight Converter</button> <button type=\"button\" onclick=\"window.location.pathname = &#39;/temperature&#39;\">Temperature Converter</button></div><h2>Result of your calculation</h2><p>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -39,7 +39,7 @@ func Result(length string, from string, result string, to string) templ.Componen
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 2)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -52,7 +52,7 @@ func Result(length string, from string, result string, to string) templ.Componen
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 3)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" = ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -65,7 +65,7 @@ func Result(length string, from string, result string, to string) templ.Componen
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 4)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -78,7 +78,7 @@ func Result(length string, from string, result string, to string) templ.Componen
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 5)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><button type=\"button\" onclick=\"window.location.href = window.location.pathname\">Reset</button></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
