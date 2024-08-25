@@ -1,0 +1,79 @@
+package templates
+
+templ Convert(unit string, Units []string) {
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Unit Converter</title>
+		<style>
+			h1 {
+				font-weight: bolder;
+				font-size: xx-large;
+				width: fit-content;
+			}
+			button {
+				cursor: pointer;
+				border: solid 3px;
+				border-radius: 10px;
+				text-decoration: none;
+				color: black;
+				font-weight: 500;
+				font-size: large;
+			}
+			form {
+				margin: 50px 0;
+			}
+			label {
+				font-size: large;
+				font-weight: bold;
+				font-size: 20px;
+			}
+			input {
+				margin-bottom: 30px;
+				width: 30%;
+				font-size: 20px;
+			}
+			select {
+				margin-bottom: 30px;
+				width: 30%;
+				font-size: 20px;
+			}
+			.submit {
+				cursor: pointer;
+				border: solid 3px;
+				border-radius: 10px;
+				text-decoration: none;
+				color: black;
+				font-weight: 500;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1 onclick="window.location.pathname = '/'">Unit Converter</h1>
+			<button type="button" onclick="window.location.pathname = '/length'">Length Converter</button>
+			<button type="button" onclick="window.location.pathname = '/weight'">Weight Converter</button>
+			<button type="button" onclick="window.location.pathname = '/temperature'">Temperature Converter</button>
+		</div>
+		<form target="_self" method="POST">
+			<label for={ unit }>Enter the { unit } to convert</label><br>
+			<input type="number" id={ unit } name={ unit }><br>
+			<label for="from">Unit to convert from</label><br>
+			<select id="from" name="from">
+				for _, v := range Units {
+				<option value={ v }>{ v }</option>
+				}
+			</select><br>
+			<label for="to">Unit to convert to</label><br>
+			<select id="to" name="to">
+				for _, v := range Units {
+				<option value={ v }>{ v }</option>
+				}
+			</select><br>
+			<input class="submit" type="submit" value="Convert">
+		</form>
+	</body>
+	</html>
+}

@@ -4,4 +4,4 @@ build:
 	@go build -o ./bin/
 
 run: build
-	@./bin/NGG
+	@./bin/unit_converter --watch

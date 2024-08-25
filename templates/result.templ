@@ -1,0 +1,42 @@
+package templates
+
+templ Result(length string, from string, result string, to string) {
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Unit Converter</title>
+		<style>
+			h1 {
+				font-weight: bolder;
+				font-size: xx-large;
+				width: fit-content;
+			}
+			button {
+				cursor: pointer;
+				border: solid 3px;
+				border-radius: 10px;
+				text-decoration: none;
+				color: black;
+				font-weight: 500;
+				font-size: large;
+			}
+			p {
+				font-size: 40px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1 onclick="window.location.pathname = '/'">Unit Converter</h1>
+			<button type="button" onclick="window.location.pathname = '/length'">Length Converter</button>
+			<button type="button" onclick="window.location.pathname = '/weight'">Weight Converter</button>
+			<button type="button" onclick="window.location.pathname = '/temperature'">Temperature Converter</button>
+		</div>
+		<h2>Result of your calculation</h2>
+		<p>{ length } { from } = { result } { to }</p>
+		<button type="button" onclick="window.location.href = window.location.pathname">Reset</button>
+	</body>
+	</html>
+}

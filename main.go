@@ -1,5 +1,94 @@
 package main
 
-func main() {
+import (
+	"context"
+	"fmt"
+	"log"
+	"net/http"
+	"unit_converter/templates"
+)
 
+var LengthUnits = []string{"millimeter", "centimeter", "meter", "kilometer", "inch", "foot", "yard", "mile"}
+var WeightUnits = []string{"milligram", "gram", "kilogram", "ounce", "pound"}
+var TemperatureUnits = []string{"Celsius", "Fahrenheit", "Kelvin"}
+
+func main() {
+	mux := http.NewServeMux()
+
+	mux.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
+		componant := templates.Index()
+		componant.Render(context.Background(), w)
+	})
+
+	mux.HandleFunc("GET /length", func(w http.ResponseWriter, r *http.Request) {
+		componant := templates.Convert("length", LengthUnits)
+		componant.Render(context.Background(), w)
+	})
+
+	mux.HandleFunc("POST /length", func(w http.ResponseWriter, r *http.Request) {
+		r.ParseForm()
+		length := r.FormValue("length")
+		from := r.FormValue("from")
+		to := r.FormValue("to")
+		result := "0"
+		if length == "" {
+			length = "0"
+		}
+		componant := templates.Result(length, from, result, to)
+		componant.Render(context.Background(), w)
+	})
+
+	mux.HandleFunc("GET /weight", func(w http.ResponseWriter, r *http.Request) {
+		componant := templates.Convert("weight", WeightUnits)
+		componant.Render(context.Background(), w)
+	})
+
+	mux.HandleFunc("POST /weight", func(w http.ResponseWriter, r *http.Request) {
+		r.ParseForm()
+		weight := r.FormValue("weight")
+		from := r.FormValue("from")
+		to := r.FormValue("to")
+		result := "0"
+		if weight == "" {
+			weight = "0"
+		}
+		componant := templates.Result(weight, from, result, to)
+		componant.Render(context.Background(), w)
+	})
+
+	mux.HandleFunc("GET /temperature", func(w http.ResponseWriter, r *http.Request) {
+		componant := templates.Convert("temperature", TemperatureUnits)
+		componant.Render(context.Background(), w)
+	})
+
+	mux.HandleFunc("POST /temperature", func(w http.ResponseWriter, r *http.Request) {
+		r.ParseForm()
+		temperature := r.FormValue("temperature")
+		from := r.FormValue("from")
+		to := r.FormValue("to")
+		result := "0"
+		if temperature == "" {
+			temperature = "0"
+		}
+		componant := templates.Result(temperature, from, result, to)
+		componant.Render(context.Background(), w)
+	})
+
+	server := http.Server{
+		Addr:    ":4000",
+		Handler: logging(mux),
+	}
+
+	fmt.Printf("Server is up and running on port: %v\n", server.Addr[1:])
+	err := server.ListenAndServe()
+	if err != nil {
+		log.Fatalln(err.Error())
+	}
+}
+
+func logging(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		log.Printf("%v %v\n", r.Method, r.URL)
+		next.ServeHTTP(w, r)
+	})
 }
