@@ -1,5 +1,7 @@
 package main
 
+var WeightUnits = []string{"milligram", "gram", "kilogram", "ounce", "pound"}
+
 type WeightConverter struct {
 	input  float64
 	from   string

@@ -1,5 +1,7 @@
 package main
 
+var LengthUnits = []string{"millimeter", "centimeter", "meter", "kilometer", "inch", "foot", "yard", "mile"}
+
 type LengthConverter struct {
 	input  float64
 	from   string

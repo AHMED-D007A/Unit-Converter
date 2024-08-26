@@ -9,10 +9,6 @@ import (
 	"unit_converter/templates"
 )
 
-var LengthUnits = []string{"millimeter", "centimeter", "meter", "kilometer", "inch", "foot", "yard", "mile"}
-var WeightUnits = []string{"milligram", "gram", "kilogram", "ounce", "pound"}
-var TemperatureUnits = []string{"Celsius", "Fahrenheit", "Kelvin"}
-
 func main() {
 	mux := http.NewServeMux()
 
@@ -83,6 +79,12 @@ func main() {
 		if temperature == "" {
 			temperature = "0"
 		}
+		var tc TemperatureConverter
+		tc.input, _ = strconv.ParseFloat(temperature, 64)
+		tc.from = from
+		tc.to = to
+		tc.initTemperatureConverter()
+		result = strconv.FormatFloat(tc.result, 'f', -1, 64)
 		componant := templates.Result(temperature, from, result, to)
 		componant.Render(context.Background(), w)
 	})
